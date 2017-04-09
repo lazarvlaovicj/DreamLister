@@ -23,7 +23,7 @@ class MainVC: UIViewController, UITableViewDataSource, UITableViewDelegate, NSFe
         tableView.delegate = self
         tableView.dataSource = self
         
-        //testingItems()
+//        testingItems()
         fetchAttempt()
         
     }
@@ -78,6 +78,8 @@ class MainVC: UIViewController, UITableViewDataSource, UITableViewDelegate, NSFe
         request.sortDescriptors = [dateSort]
         
         controller = NSFetchedResultsController(fetchRequest: request, managedObjectContext: context!, sectionNameKeyPath: nil, cacheName: nil)
+        
+        controller.delegate = self
         
         do {
             try controller.performFetch()

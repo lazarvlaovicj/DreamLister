@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1569F1641E9A85D8007F47BA /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1569F1631E9A85D8007F47BA /* CustomTextField.swift */; };
+		1569F1671E9A88DC007F47BA /* ItemDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1569F1661E9A88DC007F47BA /* ItemDetailsVC.swift */; };
 		159CB4921E99417600954215 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159CB4911E99417600954215 /* AppDelegate.swift */; };
 		159CB4941E99417600954215 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159CB4931E99417600954215 /* MainVC.swift */; };
 		159CB4971E99417600954215 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 159CB4951E99417600954215 /* Main.storyboard */; };
@@ -27,6 +29,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1569F1631E9A85D8007F47BA /* CustomTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		1569F1661E9A88DC007F47BA /* ItemDetailsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemDetailsVC.swift; sourceTree = "<group>"; };
 		159CB48E1E99417600954215 /* DreamLister.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DreamLister.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		159CB4911E99417600954215 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		159CB4931E99417600954215 /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
@@ -59,6 +63,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1569F1651E9A88A9007F47BA /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				159CB4931E99417600954215 /* MainVC.swift */,
+				1569F1661E9A88DC007F47BA /* ItemDetailsVC.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
 		159CB4851E99417600954215 = {
 			isa = PBXGroup;
 			children = (
@@ -78,10 +91,10 @@
 		159CB4901E99417600954215 /* DreamLister */ = {
 			isa = PBXGroup;
 			children = (
-				159CB4BA1E99688500954215 /* View */,
 				159CB4B61E995A8700954215 /* Model */,
+				159CB4BA1E99688500954215 /* View */,
+				1569F1651E9A88A9007F47BA /* Controller */,
 				159CB4911E99417600954215 /* AppDelegate.swift */,
-				159CB4931E99417600954215 /* MainVC.swift */,
 				159CB4951E99417600954215 /* Main.storyboard */,
 				159CB49B1E99417600954215 /* Assets.xcassets */,
 				159CB4B81E99648400954215 /* tesla.jpg */,
@@ -120,6 +133,7 @@
 			children = (
 				159CB4BB1E9968AD00954215 /* MaterialView.swift */,
 				159CB4BD1E996D6800954215 /* Cell.swift */,
+				1569F1631E9A85D8007F47BA /* CustomTextField.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -198,6 +212,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1569F1641E9A85D8007F47BA /* CustomTextField.swift in Sources */,
 				159CB4B11E995A6400954215 /* Item+CoreDataProperties.swift in Sources */,
 				159CB4B01E995A6400954215 /* Item+CoreDataClass.swift in Sources */,
 				159CB4AE1E995A6400954215 /* ItemType+CoreDataClass.swift in Sources */,
@@ -206,6 +221,7 @@
 				159CB4BE1E996D6800954215 /* Cell.swift in Sources */,
 				159CB4B31E995A6400954215 /* Store+CoreDataProperties.swift in Sources */,
 				159CB4941E99417600954215 /* MainVC.swift in Sources */,
+				1569F1671E9A88DC007F47BA /* ItemDetailsVC.swift in Sources */,
 				159CB4B21E995A6400954215 /* Store+CoreDataClass.swift in Sources */,
 				159CB4921E99417600954215 /* AppDelegate.swift in Sources */,
 				159CB49A1E99417600954215 /* DreamLister.xcdatamodeld in Sources */,
@@ -374,6 +390,7 @@
 				159CB4A51E99417600954215 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
