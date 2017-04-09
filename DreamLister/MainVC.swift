@@ -67,6 +67,23 @@ class MainVC: UIViewController, UITableViewDataSource, UITableViewDelegate, NSFe
         
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let objct = controller.fetchedObjects , objct.count > 0 {
+            let item = objct[indexPath.row]
+            performSegue(withIdentifier: "toEditVC", sender: item)
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toEditVC" {
+            if let dest = segue.destination as? ItemDetailsVC {
+                if let item = sender as? Item {
+                    dest.itemToEdit = item
+                }
+            }
+        }
+    }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 150
     }

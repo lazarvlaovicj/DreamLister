@@ -39,7 +39,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="150" id="6GB-kc-Kmb" customClass="Cell" customModule="DreamLister" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="Cell" rowHeight="150" id="6GB-kc-Kmb" customClass="Cell" customModule="DreamLister" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="343" height="150"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6GB-kc-Kmb" id="wef-fr-kdh">
@@ -144,7 +144,7 @@
                     <connections>
                         <outlet property="segment" destination="jId-5G-9kH" id="OPk-WT-plN"/>
                         <outlet property="tableView" destination="tKe-6p-ePm" id="LGo-7S-Mgi"/>
-                        <segue destination="sBA-h2-qfC" kind="show" id="LCr-1v-pWh"/>
+                        <segue destination="sBA-h2-qfC" kind="show" identifier="toEditVC" id="LCr-1v-pWh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

@@ -17,6 +17,7 @@ class ItemDetailsVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSou
     @IBOutlet weak var details: CustomTextField!
     
     var stores = [Store]()
+    var itemToEdit: Item?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,21 +29,25 @@ class ItemDetailsVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSou
         storePicker.delegate = self
         storePicker.dataSource = self
         
-//        let store = Store(context: context!)
-//        store.name = "Best Buy"
-//        let store2 = Store(context: context!)
-//        store2.name = "Amazon"
-//        let store3 = Store(context: context!)
-//        store3.name = "AliExpress"
-//        let store4 = Store(context: context!)
-//        store4.name = "Ebay"
-//        let store5 = Store(context: context!)
-//        store5.name = "Apple"
-//        let store6 = Store(context: context!)
-//        store6.name = "BIG"
-//        ad?.saveContext()
+        let store = Store(context: context!)
+        store.name = "Best Buy"
+        let store2 = Store(context: context!)
+        store2.name = "Amazon"
+        let store3 = Store(context: context!)
+        store3.name = "AliExpress"
+        let store4 = Store(context: context!)
+        store4.name = "Ebay"
+        let store5 = Store(context: context!)
+        store5.name = "Apple"
+        let store6 = Store(context: context!)
+        store6.name = "BIG"
+        ad?.saveContext()
         
         fetchStores()
+        
+        if itemToEdit != nil {
+            editItem()
+        }
         
     }
     
@@ -78,7 +83,13 @@ class ItemDetailsVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSou
     }
     @IBAction func addItem(_ sender: Any) {
         
-        let item = Item(context: context!)
+        let item: Item!
+        
+        if itemToEdit == nil {
+            item = Item(context: context!)
+        } else {
+            item = itemToEdit
+        }
         
         if let title = titleName.text {
             item.title = title
@@ -98,4 +109,31 @@ class ItemDetailsVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSou
         navigationController?.popViewController(animated: true)
     }
     
+    func editItem() {
+        
+        if let item = itemToEdit {
+            
+            titleName.text = item.title
+            price.text = "\(item.price)"
+            details.text = item.details
+            
+            if let store = itemToEdit?.toStore {
+                
+                var index = 0
+                repeat {
+                    
+                    let s = stores[index]
+                    if s.name == store.name {
+                        
+                        storePicker.selectRow(index, inComponent: 0, animated: false)
+                        break
+                    }
+                    index += 1
+                    
+                } while (index < stores.count)
+            }
+        }
+        
+    }
+     
 }
