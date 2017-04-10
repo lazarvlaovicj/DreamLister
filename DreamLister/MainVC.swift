@@ -92,7 +92,17 @@ class MainVC: UIViewController, UITableViewDataSource, UITableViewDelegate, NSFe
         
         let request: NSFetchRequest<Item> = Item.fetchRequest()
         let dateSort = NSSortDescriptor(key: "created", ascending: false)
-        request.sortDescriptors = [dateSort]
+        let priceSort = NSSortDescriptor(key: "price", ascending: true)
+        let titleSort = NSSortDescriptor(key: "title", ascending: true)
+        
+        if segment.selectedSegmentIndex == 0 {
+            request.sortDescriptors = [dateSort]
+        } else if segment.selectedSegmentIndex == 1 {
+            request.sortDescriptors = [priceSort]
+        } else if segment.selectedSegmentIndex == 2 {
+            request.sortDescriptors = [titleSort]
+        }
+        
         
         controller = NSFetchedResultsController(fetchRequest: request, managedObjectContext: context!, sectionNameKeyPath: nil, cacheName: nil)
         
@@ -106,6 +116,12 @@ class MainVC: UIViewController, UITableViewDataSource, UITableViewDelegate, NSFe
             print(error)
         }
     }
+    
+    @IBAction func segmentChange(_ sender: Any) {
+        fetchAttempt()
+        tableView.reloadData()
+    }
+    
     
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         tableView.beginUpdates()
